@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Bangun Datar dan Ruang</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(120deg, #74ebd5, #9face6);
+            margin: 0;
+            padding: 20px; 
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+        .section:hover {
+            transform: scale(1.02);
+        }
+        h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        input {
+            display: block;
+            width: 90%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.2s;
+        }
+        input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px #3498db;
+        }
+        button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        p {
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>📐 Hitung Bangun Datar & Ruang</h1>
+
+    <!-- 1. Luas Persegi Panjang -->
+    <div class="section">
+        <h3>1. Luas Persegi Panjang</h3>
+        <input type="number" id="panjang1" placeholder="Masukkan Panjang">
+        <input type="number" id="lebar1" placeholder="Masukkan Lebar">
+        <button onclick="luasPersegiPanjang()">Hitung</button>
+        <p id="hasil1"></p>
+    </div>
+
+    <!-- 2. Luas Jajar Genjang -->
+    <div class="section">
+        <h3>2. Luas Jajar Genjang</h3>
+        <input type="number" id="alas2" placeholder="Masukkan Alas">
+        <input type="number" id="tinggi2" placeholder="Masukkan Tinggi">
+        <button onclick="luasJajarGenjang()">Hitung</button>
+        <p id="hasil2"></p>
+    </div>
+
+    <!-- 3. Luas Kubus -->
+    <div class="section">
+        <h3>3. Luas Kubus</h3>
+        <input type="number" id="sisi3" placeholder="Masukkan Sisi">
+        <button onclick="luasKubus()">Hitung</button>
+        <p id="hasil3"></p>
+    </div>
+
+    <!-- 4. Luas Balok -->
+    <div class="section">
+        <h3>4. Luas Balok</h3>
+        <input type="number" id="panjang4" placeholder="Masukkan Panjang">
+        <input type="number" id="lebar4" placeholder="Masukkan Lebar">
+        <input type="number" id="tinggi4" placeholder="Masukkan Tinggi">
+        <button onclick="luasBalok()">Hitung</button>
+        <p id="hasil4"></p>
+    </div>
+
+    <!-- 5. Luas Trapesium -->
+    <div class="section">
+        <h3>5. Luas Trapesium</h3>
+        <input type="number" id="atas5" placeholder="Sisi Atas">
+        <input type="number" id="bawah5" placeholder="Sisi Bawah">
+        <input type="number" id="tinggi5" placeholder="Masukkan Tinggi">
+        <button onclick="luasTrapesium()">Hitung</button>
+        <p id="hasil5"></p>
+    </div>
+
+    <!-- 6. Luas Belah Ketupat -->
+    <div class="section">
+        <h3>6. Luas Belah Ketupat</h3>
+        <input type="number" id="d1" placeholder="Diagonal 1">
+        <input type="number" id="d2" placeholder="Diagonal 2">
+        <button onclick="luasBelahKetupat()">Hitung</button>
+        <p id="hasil6"></p>
+    </div>
+
+    <!-- 7. Keliling Segitiga Sama Kaki -->
+    <div class="section">
+        <h3>7. Keliling Segitiga Sama Kaki</h3>
+        <input type="number" id="alas7" placeholder="Masukkan Alas">
+        <input type="number" id="sisi7" placeholder="Sisi Miring">
+        <button onclick="kelilingSegitiga()">Hitung</button>
+        <p id="hasil7"></p>
+    </div>
+
+    <!-- 8. Keliling Kubus -->
+    <div class="section">
+        <h3>8. Keliling Kubus</h3>
+        <input type="number" id="sisi8" placeholder="Masukkan Sisi">
+        <button onclick="kelilingKubus()">Hitung</button>
+        <p id="hasil8"></p>
+    </div>
+
+    <!-- 9. Volume Balok -->
+    <div class="section">
+        <h3>9. Volume Balok</h3>
+        <input type="number" id="panjang9" placeholder="Masukkan Panjang">
+        <input type="number" id="lebar9" placeholder="Masukkan Lebar">
+        <input type="number" id="tinggi9" placeholder="Masukkan Tinggi">
+        <button onclick="volumeBalok()">Hitung</button>
+        <p id="hasil9"></p>
+    </div>
+
+    <!-- 10. Volume Kubus -->
+    <div class="section">
+        <h3>10. Volume Kubus</h3>
+        <input type="number" id="sisi10" placeholder="Masukkan Sisi">
+        <button onclick="volumeKubus()">Hitung</button>
+        <p id="hasil10"></p>
+    </div>
+
+    <script>
+        function luasPersegiPanjang() {
+            let p = +document.getElementById("panjang1").value;
+            let l = +document.getElementById("lebar1").value;
+            if (!p || !l) return document.getElementById("hasil1").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil1").innerText = "Luas = " + (p * l);
+        }
+        function luasJajarGenjang() {
+            let a = +document.getElementById("alas2").value;
+            let t = +document.getElementById("tinggi2").value;
+            if (!a || !t) return document.getElementById("hasil2").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil2").innerText = "Luas = " + (a * t);
+        }
+        function luasKubus() {
+            let s = +document.getElementById("sisi3").value;
+            if (!s) return document.getElementById("hasil3").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil3").innerText = "Luas = " + (6 * s * s);
+        }
+        function luasBalok() {
+            let p = +document.getElementById("panjang4").value;
+            let l = +document.getElementById("lebar4").value;
+            let t = +document.getElementById("tinggi4").value;
+            if (!p || !l || !t) return document.getElementById("hasil4").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil4").innerText = "Luas = " + (2 * (p*l + p*t + l*t));
+        }
+        function luasTrapesium() {
+            let a = +document.getElementById("atas5").value;
+            let b = +document.getElementById("bawah5").value;
+            let t = +document.getElementById("tinggi5").value;
+            if (!a || !b || !t) return document.getElementById("hasil5").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil5").innerText = "Luas = " + (0.5 * (a + b) * t);
+        }
+        function luasBelahKetupat() {
+            let d1 = +document.getElementById("d1").value;
+            let d2 = +document.getElementById("d2").value;
+            if (!d1 || !d2) return document.getElementById("hasil6").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil6").innerText = "Luas = " + (0.5 * d1 * d2);
+        }
+        function kelilingSegitiga() {
+            let alas = +document.getElementById("alas7").value;
+            let sisi = +document.getElementById("sisi7").value;
+            if (!alas || !sisi) return document.getElementById("hasil7").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil7").innerText = "Keliling = " + (alas + 2 * sisi);
+        }
+        function kelilingKubus() {
+            let s = +document.getElementById("sisi8").value;
+            if (!s) return document.getElementById("hasil8").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil8").innerText = "Keliling = " + (12 * s);
+        }
+        function volumeBalok() {
+            let p = +document.getElementById("panjang9").value;
+            let l = +document.getElementById("lebar9").value;
+            let t = +document.getElementById("tinggi9").value;
+            if (!p || !l || !t) return document.getElementById("hasil9").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil9").innerText = "Volume = " + (p * l * t);
+        }
+        function volumeKubus() {
+            let s = +document.getElementById("sisi10").value;
+            if (!s) return document.getElementById("hasil10").innerText = "⚠️ Harap isi semua input!";
+            document.getElementById("hasil10").innerText = "Volume = " + (s ** 3);
+        }
+    </script>
+</body>
+</html>
